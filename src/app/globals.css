@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --surface: 244 241 235;
+  --ink: 21 23 29;
+}
+
+.dark {
+  color-scheme: dark;
+  --surface: 21 23 29;
+  --ink: 244 241 235;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(255, 107, 87, 0.18), transparent 34rem),
+    radial-gradient(circle at top right, rgba(60, 174, 163, 0.18), transparent 36rem),
+    rgb(var(--surface));
+  color: rgb(var(--ink));
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: #ff6b57;
+  color: #fff;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(22px);
+}
+
+.dark .glass {
+  background: rgba(25, 27, 35, 0.72);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.focus-ring {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus-ring:focus-visible {
+  outline-color: #ff6b57;
+}
+
+.orbit-grid {
+  background-image:
+    linear-gradient(rgba(21, 23, 29, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 23, 29, 0.07) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.dark .orbit-grid {
+  background-image:
+    linear-gradient(rgba(244, 241, 235, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 241, 235, 0.06) 1px, transparent 1px);
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,.55), rgba(255,255,255,.22));
+  background-size: 220% 100%;
+  animation: shimmer 1.15s infinite linear;
+}
+
+@keyframes shimmer {
+  from { background-position: 100% 0; }
+  to { background-position: -100% 0; }
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
